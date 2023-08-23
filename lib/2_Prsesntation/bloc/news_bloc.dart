@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:news/0_Data/models/news_model.dart';
 import 'package:news/1_Domain/entities/news_entity.dart';
 import 'package:news/1_Domain/failure/failure.dart';
 import 'package:news/1_Domain/usecases/news_usecase.dart';
@@ -33,7 +34,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         final newsData = await newsUseCases.getnewsData();
         newsData.fold(
             (failure) => emit(NewsError(error: _mapStringToFailure(failure))),
-            (news) => emit(NewsLoaded(result: news.totalResults)));
+            (news) => emit(NewsLoaded(result: news.articles)));
       },
     );
   }

@@ -11,7 +11,7 @@ class NewsInitial extends NewsState {}
 class NewsLoading extends NewsState {}
 
 class NewsLoaded extends NewsState {
-  final result;
+  final List<Articles>? result;
   NewsLoaded({required this.result});
   @override
   List<Object?> get props => [result];
