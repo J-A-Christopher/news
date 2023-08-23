@@ -33,7 +33,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         final newsData = await newsUseCases.getnewsData();
         newsData.fold(
             (failure) => emit(NewsError(error: _mapStringToFailure(failure))),
-            (news) => emit(NewsLoaded(result: news.description)));
+            (news) => emit(NewsLoaded(result: news.totalResults)));
       },
     );
   }

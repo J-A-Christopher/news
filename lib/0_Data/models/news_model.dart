@@ -1,6 +1,12 @@
-class News {
+import 'package:equatable/equatable.dart';
+import 'package:news/1_Domain/entities/news_entity.dart';
+
+class News extends NewsEntity with EquatableMixin {
+  @override
   String? status;
+  @override
   int? totalResults;
+  @override
   List<Articles>? articles;
 
   News({this.status, this.totalResults, this.articles});

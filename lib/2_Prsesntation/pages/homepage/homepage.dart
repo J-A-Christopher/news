@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                 } else if (state is NewsLoading) {
                   return const CircularProgressIndicator();
                 } else if (state is NewsLoaded) {
-                  return Text(state.result);
+                  return Text('${state.result}');
                 } else if (state is NewsError) {
                   return ErrorMessage(message: state.error);
                 }
