@@ -6,7 +6,8 @@ import 'package:news/1_Domain/failure/failure.dart';
 import 'package:news/1_Domain/repositories/news_repo.dart';
 
 class NewsRepoImpl implements NewsRepo {
-  final NewsRemoteDataSource newsRemoteDataSource = NewsRemoteDataSourceImpl();
+  final NewsRemoteDataSource newsRemoteDataSource;
+  NewsRepoImpl({required this.newsRemoteDataSource});
   @override
   Future<Either<Failure, NewsEntity>> getnewsData() async {
     try {

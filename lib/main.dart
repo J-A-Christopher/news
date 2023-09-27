@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news/2_Prsesntation/pages/homepage/homepage.dart';
+import './di/dependency_injection.dart' as di;
 
-void main() {
+void main() async {
+  await di.init();
   runApp(const MyApp());
 }
 

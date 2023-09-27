@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/2_Prsesntation/bloc/news_bloc.dart';
 import 'package:news/2_Prsesntation/pages/homepage/widgets/error_message.dart';
 import 'package:news/2_Prsesntation/pages/homepage/widgets/news_display.dart';
+import 'package:news/di/dependency_injection.dart';
 
 class HomePageWrapper extends StatelessWidget {
   const HomePageWrapper({super.key});
@@ -10,7 +11,7 @@ class HomePageWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NewsBloc(),
+      create: (context) => serviceLocator<NewsBloc>(),
       child: const HomePage(),
     );
   }

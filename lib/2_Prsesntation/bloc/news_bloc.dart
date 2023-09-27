@@ -14,8 +14,8 @@ const generalFailure = 'Something went wrong. Try again..';
 const defaultMessage = 'Oops something went wrong.';
 
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-  NewsBloc() : super(NewsInitial()) {
-    final NewsUseCases newsUseCases = NewsUseCases();
+  final NewsUseCases newsUseCases;
+  NewsBloc({required this.newsUseCases}) : super(NewsInitial()) {
     on<GetNews>(
       (event, emit) async {
         emit(NewsInitial());

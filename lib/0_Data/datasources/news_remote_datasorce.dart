@@ -10,9 +10,11 @@ abstract class NewsRemoteDataSource {
 }
 
 class NewsRemoteDataSourceImpl implements NewsRemoteDataSource {
+  final http.Client client;
+  NewsRemoteDataSourceImpl({required this.client});
   @override
   Future<News> getNewsFromApi() async {
-    final response = await http.get(Uri.parse(
+    final response = await client.get(Uri.parse(
         'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8b38b42439bd40d3a599005d0cc8146d'));
 
     if (response.statusCode != 200) {
